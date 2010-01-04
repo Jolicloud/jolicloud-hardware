@@ -1,0 +1,23 @@
+jolicloud-hardware (0.0.3) robby-dev; urgency=low
+
+  * Removed jolicloud-hardware-repo content, now in its own source package
+
+ -- Adam McDaniel <adam@jolicloud.org>  Mon, 04 Jan 2010 04:14:29 -0700
+
+jolicloud-hardware (0.0.2) robby-dev; urgency=low
+
+  * Created apt directory switcheroo
+  * Created init.d script framework
+  * Flattened the reprepro repository into straight subdirectory
+  * Created jolicloud-hardware Perl script
+  * Setup pre-depends requirements
+  * Removed apt dir, updated install paths
+  * Fixed maintainer, install path
+
+ -- Adam McDaniel <adam@jolicloud.org>  Mon, 04 Jan 2010 03:52:12 -0700
+
+jolicloud-hardware (0.0.1) robby-dev; urgency=low
+
+  * Initial release.
+
+ -- Adam McDaniel <adam@jolicloud.org>  Tue, 29 Dec 2009 12:49:48 -0700
