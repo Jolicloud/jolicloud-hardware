@@ -5,7 +5,7 @@ BASE_PACKAGE=$2
 
 DPKG=/usr/bin/dpkg
 DEBPATH=/var/lib/jolicloud-hardware/repo-cache
-CONFIGPATH=/usr/share/jolicloud-hardware/config
+CONFIGPATH=/usr/lib/jolicloud-hardware/config
 
 if [ $# -lt 2 ]; then
     exit 1
