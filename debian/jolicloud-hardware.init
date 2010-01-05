@@ -14,7 +14,7 @@ SETUP=/usr/lib/jolicloud-hardware/jolicloud-hardware-setup.pl
 
 . /lib/lsb/init-functions
 
-text -x $SETUP || exit 0
+test -x $SETUP || exit 0
 
 case "$1" in
     start)
