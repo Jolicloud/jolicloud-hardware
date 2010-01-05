@@ -1,1 +1,3 @@
 bin /usr
+config /usr/share/jolicloud-hardware
+handler /usr/share/jolicloud-hardware
