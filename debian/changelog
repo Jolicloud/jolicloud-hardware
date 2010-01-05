@@ -1,3 +1,17 @@
+jolicloud-hardware (0.1.0) robby-test; urgency=low
+
+  * Added directories for config and handler scripts
+  * Created nvidia config and handler scripts
+  * Install the config scripts under /usr/lib/jolicloud-hardware, not
+    /usr/share
+  * Updated init script to be semi-LSB-compliant
+  * Changed all 'pre-depends' rules to 'depends'
+  * "Deinstalled" packages are not installed, include them in the check
+  * Moved main jolicloud-hardware script out of PATH; renamed
+  * Fixed syntax in init script
+
+ -- Adam McDaniel <adam@jolicloud.org>  Tue, 05 Jan 2010 12:46:14 -0700
+
 jolicloud-hardware (0.0.3) robby-dev; urgency=low
 
   * Removed jolicloud-hardware-repo content, now in its own source package
