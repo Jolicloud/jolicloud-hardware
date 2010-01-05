@@ -6,7 +6,15 @@ Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
 Package: jolicloud-hardware
-Depends: dkms, linux-headers-jolicloud | linux-headers, jolicloud-hardware-repo, nvidia-common
+Depends: dkms, linux-headers-jolicloud | linux-headers-jolicloud-atom, jolicloud-hardware-repo, nvidia-common
 Architecture: all
-Description: Test package for jolicloud-hardware
- Test package for jolicloud-hardware
+Description: Jolicloud scripts to preconfigure specialized hardware on bootup
+ This package contains a series of scripts that are designed to
+ pre-configure specialized hardware on bootup. This is hardware that
+ requires packages that cannot safely be installed on the standard ISO
+ release of Jolicloud.
+ .
+ Currently, this package auto-activates the following drivers when the
+ appropriate hardware is detected:
+ .
+  * NVIDIA OpenGL (via nvidia-glx-185) for GeForce, Quadro, and Ion platforms
