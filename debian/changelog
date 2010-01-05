@@ -1,3 +1,9 @@
+jolicloud-hardware (0.1.1) robby-test; urgency=low
+
+  * Depend on kernel headers explicitly; update package description
+
+ -- Adam McDaniel <adam@jolicloud.org>  Tue, 05 Jan 2010 13:08:24 -0700
+
 jolicloud-hardware (0.1.0) robby-test; urgency=low
 
   * Added directories for config and handler scripts
