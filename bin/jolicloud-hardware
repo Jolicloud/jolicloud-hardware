@@ -108,5 +108,11 @@ while ( my ( $module, $matches ) = each %{ $matched } ) {
 
 
 foreach ( @{ $install } ) {
-    print "Install package '$_->{ 'package' }' to provide module '$_->{ 'module' }'\n";
+    my $handler = "/usr/lib/jolicloud-hardware/handler/$_->{ 'module' }";
+
+    print "Identified package '$_->{ 'package' }' provides module '$_->{ 'module' }'\n";
+    if ( -x $handler ) {
+        print "Running handler $handler\n";
+        system( $handler, $_->{ 'module' }, $_->{ 'package' } );
+    }
 }

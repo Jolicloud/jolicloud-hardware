@@ -1,0 +1,29 @@
+#!/bin/sh
+
+MODULE=$1
+BASE_PACKAGE=$2
+
+DPKG=/usr/bin/dpkg
+DEBPATH=/var/lib/jolicloud-hardware/repo-cache
+CONFIGPATH=/usr/share/jolicloud-hardware/config
+
+if [ $# -lt 2 ]; then
+    exit 1
+fi
+
+if `$DPKG --get-selections $BASE_PACKAGE 2>/dev/null | grep -q install`; then
+    echo "Already installed $MODULE package $BASE_PACKAGE.";
+    #exit 0;
+else
+    if [ -d $DEBPATH/$MODULE ]; then
+        echo "Installing $MODULE package $BASE_PACKAGE.";
+        $DPKG -i $DEBPATH/$MODULE/*
+    fi
+fi
+
+if [ -x $CONFIGPATH/config-xorg-$MODULE.py ]; then
+    echo "Running $MODULE configuration package.";
+    $CONFIGPATH/config-xorg-$MODULE.py
+fi
+
+exit 0
