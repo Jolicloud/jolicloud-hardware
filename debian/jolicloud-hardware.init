@@ -10,12 +10,16 @@
 ### END INIT INFO
 
 DESC=jolicloud-hardware
+SETUP=/usr/lib/jolicloud-hardware/jolicloud-hardware-setup.pl
 
 . /lib/lsb/init-functions
+
+text -x $SETUP || exit 0
 
 case "$1" in
     start)
         log_action_begin_msg "Starting $DESC"
+        $SETUP
         log_end_msg 0
         ;;
 
