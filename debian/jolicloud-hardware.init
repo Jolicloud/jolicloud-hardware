@@ -1,4 +1,13 @@
 #!/bin/sh
+### BEGIN INIT INFO
+# Provides:          jolicloud-hardware
+# Required-Start:    $local_fs $syslog
+# Required-Stop:     
+# Default-Start:     S
+# Default-Stop:      
+# Short-Description: Start daemon at boot time
+# Description:       Enable service provided by daemon.
+### END INIT INFO
 
 DESC=jolicloud-hardware
 
@@ -11,6 +20,12 @@ case "$1" in
         ;;
 
     stop)
+        ;;
+
+    restart)
+        ;;
+
+    force-reload)
         ;;
 
     *)
