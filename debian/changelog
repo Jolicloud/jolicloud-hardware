@@ -1,3 +1,10 @@
+jolicloud-hardware (0.1.2) robby; urgency=low
+
+  * Set the nvidia handler execution to appear as "Initializing..." in
+    usplash. Optional text appears when verbose booting enabled.
+
+ -- Adam McDaniel <adam@jolicloud.org>  Wed, 17 Mar 2010 05:06:16 -0600
+
 jolicloud-hardware (0.1.1) robby-test; urgency=low
 
   * Depend on kernel headers explicitly; update package description
