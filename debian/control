@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
 Package: jolicloud-hardware
-Depends: dkms, linux-headers-jolicloud | linux-headers-jolicloud-atom, jolicloud-hardware-repo, nvidia-common
+Depends: jolicloud-hardware-repo, nvidia-common
 Architecture: all
 Description: Jolicloud scripts to preconfigure specialized hardware on bootup
  This package contains a series of scripts that are designed to
