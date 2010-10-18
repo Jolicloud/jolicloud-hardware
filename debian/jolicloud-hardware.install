@@ -1,3 +1,4 @@
 *.pl /usr/lib/jolicloud-hardware
 config /usr/lib/jolicloud-hardware
 handler /usr/lib/jolicloud-hardware
+modaliases /usr/share/jockey
