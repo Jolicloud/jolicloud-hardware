@@ -17,4 +17,5 @@ Description: Jolicloud scripts to preconfigure specialized hardware on bootup
  Currently, this package auto-activates the following drivers when the
  appropriate hardware is detected:
  .
-  * NVIDIA OpenGL (via nvidia-glx-185) for GeForce, Quadro, and Ion platforms
+  * NVIDIA OpenGL (via nvidia-current) for GeForce, Quadro, and Ion platforms
+  * PSB DRM (via jolicloud-poulsbo) for Poulsbo platforms
