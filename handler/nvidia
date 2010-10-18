@@ -17,14 +17,9 @@ if `$DPKG --get-selections $BASE_PACKAGE 2>/dev/null | grep -q \[^de\]install`; 
 else
     if [ -d $DEBPATH/$MODULE ]; then
         echo "Installing $MODULE package $BASE_PACKAGE.";
-        usplash_write "TIMEOUT 120"
-        #usplash_write "VERBOSE ON"
-        usplash_write "TEXT Please wait, initializing nVidia driver..."
-        usplash_write "PULSATE"
+        plymouth message --text="Please wait, initializing nVidia driver..."
         $DPKG -i $DEBPATH/$MODULE/*
-        usplash_write "TEXT Finished."
-        usplash_write "VERBOSE default"
-        usplash_write "TIMEOUT 15"
+        plymouth message --text="Continuing boot process..."
     fi
 fi
 
