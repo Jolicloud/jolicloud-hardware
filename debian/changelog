@@ -1,3 +1,15 @@
+jolicloud-hardware (1.1.0~1) robby; urgency=low
+
+  * Use plymouth for the boot messages, not usplash
+  * Added poulsbo handler and config scripts
+  * Created poulsbo modalias file, install it into jockey's modaliases
+    location
+  * Remove the DKMS requirement of jolicloud-hardware
+  * Add python-xkit to depends list for config-xorg-*.py scripts
+  * Updated the package description to state it provides poulsbo support
+
+ -- Adam McDaniel <adam@jolicloud.org>  Mon, 18 Oct 2010 15:32:09 -0600
+
 jolicloud-hardware (0.1.2) robby; urgency=low
 
   * Set the nvidia handler execution to appear as "Initializing..." in
