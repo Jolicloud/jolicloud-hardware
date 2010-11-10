@@ -1,11 +1,19 @@
-jolicloud-hardware (1.1.0~2) robby; urgency=low
+jolicloud-hardware (1.1.0) robby-lucid; urgency=low
 
+  [Adam McDaniel]
+  * Created upstart script to ensure jolicloud-hardware preceeds slim,
+    ubiquity-dm, et al
+  * debian/preinst script to remove obsolete init.d startup script
+  * Configure nvidia xorg file to disable the nvidia splash logo and the
+    bandwidth test to speed-up the driver's startup time.
+  * After running joilcloud-hardware, remove it from the installed machine
+    as its packages are no longer required. However, leave the packages
+    alone when running in casper's liveusb environment.
+
+  [Andrew Stormont]
   * Add support for VirtualBox Guest Additions.
 
- -- Andrew Stormont <andy@jolicloud.org>  Tue, 09 Nov 2010 16:53:09 +0100
-
-jolicloud-hardware (1.1.0~1) robby; urgency=low
-
+  [Adam McDaniel]
   * Use plymouth for the boot messages, not usplash
   * Added poulsbo handler and config scripts
   * Created poulsbo modalias file, install it into jockey's modaliases
@@ -14,7 +22,7 @@ jolicloud-hardware (1.1.0~1) robby; urgency=low
   * Add python-xkit to depends list for config-xorg-*.py scripts
   * Updated the package description to state it provides poulsbo support
 
- -- Adam McDaniel <adam@jolicloud.org>  Mon, 18 Oct 2010 15:32:09 -0600
+ -- Adam McDaniel <adam@jolicloud.org>  Wed, 10 Nov 2010 15:00:49 +0100
 
 jolicloud-hardware (0.1.2) robby; urgency=low
 
