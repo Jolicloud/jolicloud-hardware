@@ -28,7 +28,15 @@ fi
 
 [ $err != 0 ] && exit $err
 
-# Load the other dependent vbox modules too
+# Load the other dependent vbox modules too, now, and at every bootup.
 modprobe vboxnetflt vboxnetadp vboxvfs vboxdrv vboxvideo
+err=$?
+cat >> /etc/modules <<EOF
+vboxnetflt
+vboxnetadp
+vboxvfs
+vboxdrv
+vboxvideo
+EOF
 
-exit $?
+exit $err
