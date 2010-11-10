@@ -1,3 +1,14 @@
+jolicloud-hardware (1.1.1~1) robby-lucid; urgency=low
+
+  * Depend on dkms for virtualbox (and later mactel) packages.
+  * Log to /var/log/jolicloud-hardware.log
+  * Add basic exit-level reporting to the main script and the handlers
+    to watch for any failtures during installation.
+  * Configure the vboxguest modules to load on every startup, after the
+    handler has run just once.
+
+ -- Adam McDaniel <adam@jolicloud.org>  Wed, 10 Nov 2010 23:03:26 +0100
+
 jolicloud-hardware (1.1.0) robby-lucid; urgency=low
 
   [Adam McDaniel]
