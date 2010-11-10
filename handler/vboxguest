@@ -11,6 +11,8 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
+err=0
+
 if `$DPKG --get-selections $BASE_PACKAGE 2>/dev/null | grep -q \[^de\]install`; then
     echo "Already installed $MODULE package $BASE_PACKAGE.";
     #exit 0;
@@ -19,11 +21,14 @@ else
         echo "Installing $MODULE package $BASE_PACKAGE.";
         plymouth message --text="Please wait, initializing VirtualBox driver..."
         $DPKG -i -G $DEBPATH/$MODULE/*
+        err=$?
         plymouth message --text="Continuing boot process..."
     fi
 fi
 
+[ $err != 0 ] && exit $err
+
 # Load the other dependent vbox modules too
 modprobe vboxnetflt vboxnetadp vboxvfs vboxdrv vboxvideo
 
-exit 0
+exit $?

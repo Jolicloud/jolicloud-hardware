@@ -106,14 +106,17 @@ while ( my ( $module, $matches ) = each %{ $matched } ) {
     push( @{ $install }, pop( @sorted ) );
 }
 
+my $err = 0;
 
 foreach ( @{ $install } ) {
     my $handler = "/usr/lib/jolicloud-hardware/handler/$_->{ 'module' }";
 
     print "Identified package '$_->{ 'package' }' provides module '$_->{ 'module' }'\n";
     if ( -x $handler ) {
-        print "Running handler $handler\n";
+        print "Running handler $handler $_->{ 'module' } $_->{ 'package' }\n";
         system( $handler, $_->{ 'module' }, $_->{ 'package' } );
+        $err = $? >> 8;
+	warn "$handler returned errorcode $err";
     }
 }
 
@@ -123,6 +126,9 @@ foreach ( @{ $install } ) {
 # unless we're booting in LiveUSB mode. Remove it, but only if we're in an
 # installed state.
 
+# Except if a system call to a handler failed, that is.
+exit $err if $err;
+
 open ( FD, '/proc/cmdline' );
 my $cmdline = <FD>;
 close( FD );
@@ -130,3 +136,4 @@ if ( $cmdline !~ / boot=casper / ) {
     system( "/usr/bin/apt-get", "-y", "purge", "^jolicloud-hardware" );
 }
 
+exit 0

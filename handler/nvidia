@@ -11,6 +11,8 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
+err=0
+
 if `$DPKG --get-selections $BASE_PACKAGE 2>/dev/null | grep -q \[^de\]install`; then
     echo "Already installed $MODULE package $BASE_PACKAGE.";
     #exit 0;
@@ -19,13 +21,17 @@ else
         echo "Installing $MODULE package $BASE_PACKAGE.";
         plymouth message --text="Please wait, initializing nVidia driver..."
         $DPKG -i $DEBPATH/$MODULE/*
+        err=$?
         plymouth message --text="Continuing boot process..."
     fi
 fi
 
+[ $? != 0 ] && exit $?
+
 if [ -x $CONFIGPATH/config-xorg-$MODULE.py ]; then
     echo "Running $MODULE configuration package.";
     $CONFIGPATH/config-xorg-$MODULE.py
+    err=$?
 fi
 
-exit 0
+exit $err
