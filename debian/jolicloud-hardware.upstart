@@ -1,0 +1,21 @@
+# jolicloud-hardware
+#
+# This program auto-initalizes hardware-specific packages and scripts on
+# bootup prior to X startup. It is useful to provide third-party DKMS
+# modules, X configuration, or general fine-tuning for specific hardware
+# that is not compatibile with other devices.
+
+description "Jolicloud Hardware"
+author      "Adam McDaniel <adam@jolicloud.org>"
+
+start on (starting ubiquity or
+          starting gdm or
+          starting xdm or
+          starting uxlaunch or
+          starting silm)
+
+task
+
+script
+    exec /usr/lib/jolicloud-hardware/jolicloud-hardware-setup.pl
+end script
