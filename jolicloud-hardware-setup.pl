@@ -116,3 +116,17 @@ foreach ( @{ $install } ) {
         system( $handler, $_->{ 'module' }, $_->{ 'package' } );
     }
 }
+
+
+# We're all done running, so there should be no reason to continue to keep
+# jolicloud-hardware or jolicloud-hardware-repo on this machine, that is
+# unless we're booting in LiveUSB mode. Remove it, but only if we're in an
+# installed state.
+
+open ( FD, '/proc/cmdline' );
+my $cmdline = <FD>;
+close( FD );
+if ( $cmdline !~ / boot=casper / ) {
+    system( "/usr/bin/apt-get", "-y", "purge", "^jolicloud-hardware" );
+}
+
