@@ -58,6 +58,8 @@ class XorgConfig:
 
         # Set the driver in the Device section:
         self.xorg_conf.setDriver('Device', 'nvidia', device)
+        self.xorg_conf.addOption('Screen', 'NoLogo', 'True', optiontype='Option')
+        self.xorg_conf.addOption('Screen', 'NoBandwidthTest', 'True', optiontype='Option')
 
         # Write the changes to the destination file
         self.xorg_conf.writeFile(self.destination)
