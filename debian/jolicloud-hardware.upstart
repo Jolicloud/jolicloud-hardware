@@ -17,5 +17,5 @@ start on (starting ubiquity or
 task
 
 script
-    exec /usr/lib/jolicloud-hardware/jolicloud-hardware-setup.pl
+    exec /usr/lib/jolicloud-hardware/jolicloud-hardware-setup.pl 2>&1 > /var/log/jolicloud-hardware.log
 end script
