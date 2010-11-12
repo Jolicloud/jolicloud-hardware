@@ -12,7 +12,7 @@ start on (starting ubiquity or
           starting gdm or
           starting xdm or
           starting uxlaunch or
-          starting silm)
+          starting slim)
 
 task
 
