@@ -1,3 +1,11 @@
+jolicloud-hardware (1.1.1~2) robby-lucid; urgency=low
+
+  * Removed handler/vboxguest module loading procedure, not necessary.
+  * Correct the spelling of "slim" as starting point in jolicloud-
+    hardware upstart script.
+
+ -- Adam McDaniel <adam@jolicloud.org>  Sat, 13 Nov 2010 02:15:48 +0100
+
 jolicloud-hardware (1.1.1~1) robby-lucid; urgency=low
 
   * Depend on dkms for virtualbox (and later mactel) packages.
