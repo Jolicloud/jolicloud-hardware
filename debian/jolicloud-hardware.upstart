@@ -8,11 +8,7 @@
 description "Jolicloud Hardware"
 author      "Adam McDaniel <adam@jolicloud.org>"
 
-start on (starting ubiquity or
-          starting gdm or
-          starting xdm or
-          starting uxlaunch or
-          starting slim)
+start on (starting slim and (starting ubiquity or starting oem-config))
 
 task
 
