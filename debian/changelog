@@ -1,3 +1,14 @@
+jolicloud-hardware (1.1.1~4) robby-lucid; urgency=low
+
+  * Jolicloud-hardware should only start on starting-dm event. This
+    event is emitted by ubiquity, oem-config, and slim, ensuring that
+    jolicloud-hardware has had a chance to run prior to any X display,
+    regardless of who started X.
+  * Create a config-xorg-vboxguest.py script to set 1024x600 as default
+    display resolution.
+
+ -- Adam McDaniel <adam@jolicloud.org>  Sun, 14 Nov 2010 19:30:00 +0100
+
 jolicloud-hardware (1.1.1~3) robby-lucid; urgency=low
 
   * Manually load vboxguest after its built by dkms. On each following
