@@ -26,6 +26,14 @@ else
     fi
 fi
 
+[ $? != 0 ] && exit $?
+
+if [ -x $CONFIGPATH/config-xorg-$MODULE.py ]; then
+    echo "Running $MODULE configuration package.";
+    $CONFIGPATH/config-xorg-$MODULE.py
+    err=$?
+fi
+
 # Manually load vboxguest now, since the module was just built by dkms. All
 # other modules are loaded automatically after jolicloud-hardware finishes.
 # Vboxguest will also be autoloaded on next bootup by its hotplug alias.
