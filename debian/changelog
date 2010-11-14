@@ -1,3 +1,12 @@
+jolicloud-hardware (1.1.1~3) robby-lucid; urgency=low
+
+  * Manually load vboxguest after its built by dkms. On each following
+    bootup, it will be autoloaded by its hotplug alias.
+  * Make upstart script dependant upon starting slim and (ubiquity or
+    oem-config)
+
+ -- Adam McDaniel <adam@jolicloud.org>  Sun, 14 Nov 2010 16:19:21 +0100
+
 jolicloud-hardware (1.1.1~2) robby-lucid; urgency=low
 
   * Removed handler/vboxguest module loading procedure, not necessary.
