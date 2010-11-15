@@ -1,3 +1,9 @@
+jolicloud-hardware (1.1.1~5) robby-lucid; urgency=low
+
+  * Fix screen resizing with config-xorg-vboxguest.py
+
+ -- Andrew Stormont <andy@jolicloud.org>  Mon, 15 Nov 2010 16:20:19 +0100
+
 jolicloud-hardware (1.1.1~4) robby-lucid; urgency=low
 
   * Jolicloud-hardware should only start on starting-dm event. This
