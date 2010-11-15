@@ -45,14 +45,16 @@ class XorgConfig:
             self.xorg_conf = XKit.xutils.XUtils()
 
     def customiseConfig(self):
-        # set DefaultDepth to 24; X.org does not work otherwise
+        # set Driver to vboxvideo or automatic resize wont work
+        self.xorg_conf.makeSection('Device', identifier='Configured Video Device')
+        self.xorg_conf.addOption('Device', 'Driver', 'vboxvideo', position=0)
+
         self.xorg_conf.makeSection('Screen', identifier='Default Screen')
-        self.xorg_conf.addOption('Screen', 'DefaultDepth', '24', position=0, prefix='')
+        self.xorg_conf.addOption('Screen', 'Device', 'Configured Video Device', position=0)
 
-        self.xorg_conf.makeSubSection('Screen', 'Display', position=0)
-        self.xorg_conf.addSubOption('Screen', 'Display', 'Depth', value='24', position=0)
-        self.xorg_conf.addSubOption('Screen', 'Display', 'Modes', value='"1024x600"', position=0)
-
+        self.xorg_conf.makeSection('ServerLayout', identifier='Default Layout')
+        self.xorg_conf.addOption('ServerLayout', 'Screen', 'Default Screen', position=0)
+       
         # Write the changes to the destination file
         self.xorg_conf.writeFile(self.destination)
 
