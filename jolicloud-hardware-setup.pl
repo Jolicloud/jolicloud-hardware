@@ -133,7 +133,8 @@ open ( FD, '/proc/cmdline' );
 my $cmdline = <FD>;
 close( FD );
 if ( $cmdline !~ / boot=casper / ) {
-    system( "/usr/bin/apt-get", "-y", "purge", "^jolicloud-hardware" );
+    system( "/usr/bin/apt-mark", "markauto", "jolicloud-hardware" );
+    system( "/usr/bin/apt-mark", "markauto", "jolicloud-hardware-repo" );
 }
 
 exit 0
