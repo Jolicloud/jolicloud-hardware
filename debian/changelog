@@ -1,3 +1,19 @@
+jolicloud-hardware (1.1.1) robby-lucid; urgency=low
+
+  [ Andrew Stormont ]
+  * Should depend on python too
+
+  [ Adam McDaniel ]
+  * Rather than removing jolicloud-hardware synchronously within the
+    boot process, mark jolicloud-hardware as "auto-installed" during the
+    first boot after sucessful ISO installation. Since no packages
+    depend on it, this actually queues it for removal on the next
+    jolicloud-daemon run of "apt-get autoremove"
+  * Do not overwrite /var/log/jolicloud-hardware.log, append to it. This
+    makes debugging easier.
+
+ -- Adam McDaniel <adam@jolicloud.org>  Fri, 03 Dec 2010 05:49:08 -0700
+
 jolicloud-hardware (1.1.1~5) robby-lucid; urgency=low
 
   * Fix screen resizing with config-xorg-vboxguest.py
