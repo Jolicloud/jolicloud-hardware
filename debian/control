@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
 Package: jolicloud-hardware
-Depends: jolicloud-hardware-repo, nvidia-common, python-xkit, dkms, python
+Depends: jolicloud-hardware-repo, nvidia-common, nvidia-current-modaliases, nvidia-legacy-173-modaliases, nvidia-legacy-96-modaliases, python-xkit, dkms, python
 Architecture: all
 Description: Jolicloud scripts to preconfigure specialized hardware on bootup
  This package contains a series of scripts that are designed to
@@ -18,4 +18,5 @@ Description: Jolicloud scripts to preconfigure specialized hardware on bootup
  appropriate hardware is detected:
  .
   * NVIDIA OpenGL (via nvidia-current) for GeForce, Quadro, and Ion platforms
+  * NVIDIA OpenGL (via nvidia-legacy-173,96) for older GeForce, Quadro platforms
   * PSB DRM (via jolicloud-poulsbo) for Poulsbo platforms
