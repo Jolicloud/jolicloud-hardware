@@ -1,3 +1,12 @@
+jolicloud-hardware (1.2.0) robby-1.2; urgency=low
+
+  * Use the base-package name when locating nvidia module packages: this
+    allows support for nvidia-legacy-173,96 packages
+  * Require jolicloud-hardware-repo >= 1.2.1 with updated nvidia
+    directory paths
+
+ -- Adam McDaniel <adam@jolicloud.org>  Fri, 04 Feb 2011 15:01:36 +0100
+
 jolicloud-hardware (1.1.1) robby-lucid; urgency=low
 
   [ Andrew Stormont ]
