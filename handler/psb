@@ -26,12 +26,6 @@ else
     fi
 fi
 
-[ $err != 0 ] && exit $err
-
-if [ -x $CONFIGPATH/config-xorg-$MODULE.py ]; then
-    echo "Running $MODULE configuration package.";
-    $CONFIGPATH/config-xorg-$MODULE.py
-    err=$?
-fi
+# Xorg configuration is now handled by pouslbo-config package.
 
 exit $err
