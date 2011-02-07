@@ -1,3 +1,9 @@
+jolicloud-hardware (1.2.1) robby-1.2; urgency=low
+
+  * Outsource pouslbo Xorg configuration to pouslbo-config package.
+
+ -- Adam McDaniel <adam@jolicloud.org>  Mon, 07 Feb 2011 18:14:34 +0100
+
 jolicloud-hardware (1.2.0) robby-1.2; urgency=low
 
   * Use the base-package name when locating nvidia module packages: this
