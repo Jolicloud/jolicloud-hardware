@@ -19,7 +19,13 @@ if `$DPKG --get-selections $BASE_PACKAGE 2>/dev/null | grep -q \[^de\]install`; 
 else
     if [ -d $DEBPATH/$BASE_PACKAGE ]; then
         echo "Installing $MODULE package $BASE_PACKAGE.";
-        plymouth message --text="Please wait, initializing nVidia driver..."
+        message=
+        if grep -q "boot=casper" /proc/cmdline; then
+            message="Please wait, pre-configuring Nvidia driver..."
+        else
+            message="Please wait, finalizing Nvidia driver installation..."
+        fi
+        plymouth message --text="$message"
         $DPKG -i $DEBPATH/$BASE_PACKAGE/*
         err=$?
         plymouth message --text="Continuing boot process..."

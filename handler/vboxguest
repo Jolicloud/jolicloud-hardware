@@ -19,7 +19,13 @@ if `$DPKG --get-selections $BASE_PACKAGE 2>/dev/null | grep -q \[^de\]install`; 
 else
     if [ -d $DEBPATH/$MODULE ]; then
         echo "Installing $MODULE package $BASE_PACKAGE.";
-        plymouth message --text="Please wait, initializing VirtualBox driver..."
+        message=
+        if grep -q "boot=casper" /proc/cmdline; then
+            message="Please wait, pre-configuring VirtualBox driver..."
+        else
+            message="Please wait, finalizing VirtualBox driver installation..."
+        fi
+        plymouth message --text="$message"
         $DPKG -i -G $DEBPATH/$MODULE/*
         err=$?
         plymouth message --text="Continuing boot process..."
