@@ -1,3 +1,11 @@
+jolicloud-hardware (1.2.2) robby-1.2; urgency=low
+
+  * Produce a different plymouth message during handler installation:
+    "pre-configuring driver" for casper bootup, "finalizing driver
+    installation" for first HDD bootup
+
+ -- Adam McDaniel <adam@jolicloud.org>  Sun, 13 Feb 2011 21:16:49 -0700
+
 jolicloud-hardware (1.2.1) robby-1.2; urgency=low
 
   * Outsource pouslbo Xorg configuration to pouslbo-config package.
