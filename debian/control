@@ -4,6 +4,8 @@ Priority: standard
 Maintainer: Adam McDaniel <adam@jolicloud.org>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
+Vcs-Git: git://github.com/jolicloud/jolicloud-hardware.git
+Vcs-Browser: https://github.com/jolicloud/jolicloud-hardware
 
 Package: jolicloud-hardware
 Depends: jolicloud-hardware-repo (>=1.2.1), nvidia-common, nvidia-current-modaliases, nvidia-legacy-173-modaliases, nvidia-legacy-96-modaliases, python-xkit, dkms, python
