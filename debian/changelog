@@ -1,3 +1,12 @@
+jolicloud-hardware (1.2.3) robby-1.2.1; urgency=low
+
+  * Added github URLs to debian/control, plus LICENSE & README
+    placeholders
+  * Created ATI/fglrx handler script
+  * Execute aticonfig --initial after fglrx installation to configure X
+
+ -- Adam McDaniel <adam@jolicloud.org>  Fri, 08 Apr 2011 10:35:54 -0600
+
 jolicloud-hardware (1.2.2) robby-1.2; urgency=low
 
   * Produce a different plymouth message during handler installation:
