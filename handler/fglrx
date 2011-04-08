@@ -1,0 +1,43 @@
+#!/bin/sh
+
+MODULE=$1
+BASE_PACKAGE=$2
+
+DPKG=/usr/bin/dpkg
+DEBPATH=/var/lib/jolicloud-hardware/repo-cache
+CONFIGPATH=/usr/lib/jolicloud-hardware/config
+
+if [ $# -lt 2 ]; then
+    exit 1
+fi
+
+err=0
+
+if `$DPKG --get-selections $BASE_PACKAGE 2>/dev/null | grep -q \[^de\]install`; then
+    echo "Already installed $MODULE package $BASE_PACKAGE.";
+    #exit 0;
+else
+    if [ -d $DEBPATH/$BASE_PACKAGE ]; then
+        echo "Installing $MODULE package $BASE_PACKAGE.";
+        message=
+        if grep -q "boot=casper" /proc/cmdline; then
+            message="Please wait, pre-configuring ATI driver..."
+        else
+            message="Please wait, finalizing ATI driver installation..."
+        fi
+        plymouth message --text="$message"
+        $DPKG -i $DEBPATH/$BASE_PACKAGE/*
+        err=$?
+        plymouth message --text="Continuing boot process..."
+    fi
+fi
+
+[ $? != 0 ] && exit $?
+
+if [ -x $CONFIGPATH/config-xorg-$MODULE.py ]; then
+    echo "Running $MODULE configuration package.";
+    $CONFIGPATH/config-xorg-$MODULE.py
+    err=$?
+fi
+
+exit $err
