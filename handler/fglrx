@@ -28,16 +28,15 @@ else
         plymouth message --text="$message"
         $DPKG -i $DEBPATH/$BASE_PACKAGE/*
         err=$?
+
+        if [ $? -eq 0 -a -x /usr/lib/fglrx/bin/aticonfig ]; then
+            /usr/lib/fglrx/bin/aticonfig --initial -f
+            /usr/lib/fglrx/bin/aticonfig --overlay-type=Xv
+            err=$?
+        fi
+
         plymouth message --text="Continuing boot process..."
     fi
-fi
-
-[ $? != 0 ] && exit $?
-
-if [ -x $CONFIGPATH/config-xorg-$MODULE.py ]; then
-    echo "Running $MODULE configuration package.";
-    $CONFIGPATH/config-xorg-$MODULE.py
-    err=$?
 fi
 
 exit $err
